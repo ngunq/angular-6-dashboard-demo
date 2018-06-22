@@ -1,0 +1,7 @@
+<div class="text-muted">Total {{timeService.getGrossTitle()}}/{{timeService.getYear()}}</div>
+<div class="lgTxt txtColor" [hidden]="service.hidden">{{service.grossRevenue}}</div>
+<img src="assets/images/summary-loading.svg" [hidden]="service.loader">
+<div [hidden]="service.reload">
+  <img src="assets/images/reload.png" style="cursor: pointer;" (click)="load()" width="40">&nbsp;
+  <strong>Reload</strong>
+</div>

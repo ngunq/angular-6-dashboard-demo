@@ -1,0 +1,17 @@
+<label>
+  <strong style="font-size: 80%;">ARPPU</strong>
+</label>
+<div>
+  <div class="chart-panel" id="arppu-chart" [hidden]="chartService.hidden"></div>
+  <div class="chart-panel" id="arppu-chart-loader" [hidden]="chartService.loader">
+    <div class="text-center" style="vertical-align:  middle; line-height: 380px;">
+      <img src="assets/images/loading.svg">
+    </div>
+  </div>
+  <div class="chart-panel" id="arppu-chart-reloader" [hidden]="chartService.reload">
+    <div class="text-center" style="vertical-align:  middle; line-height: 380px;">
+      <img src="assets/images/reload.png" style="cursor: pointer;" (click)="load()">&nbsp;
+      <strong>Reload</strong>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,110 @@
+<div class="top-bar">
+  <div class="float-right mr15 mt5 time-select-btn" data-toggle="tooltip" data-placement="bottom">
+    <!-- <i class="fa fa-clock-o" style="color: rgb(59, 89, 152);"></i> -->
+    <!-- &nbsp; -->
+    <span id="toggle-time-select" (click)="toggleTimeSelect()">{{timeService.timeLabel}}</span>
+  </div>
+  <div class="clearfix"></div>
+</div>
+<div class="time-select" [hidden]="timeService.panelHidden">
+  <div class="row">
+    <div class="col-md-5 col-sm-6 col-xs-12">
+      <form>
+        <h5>CUSTOM RANGE</h5>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group input-group">
+              <label class="has-float-label">
+                <input disabled id="from-date" type="text" name="from-date" class="form-control" placeholder="From Date" [(ngModel)]="timeService.fromDate">
+                <span>From</span>
+              </label>
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-warning btn-calendar" (click)="toggleCalendar(0)" disabled>
+                  <i class="fa fa-calendar"></i>
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row" [hidden]="timeService.calendarHidden[0]">
+          <div class="col-md-12">
+            <div id="from-calendar">
+              <ngb-datepicker name="sc" [(ngModel)]="timeService.fromCalendarModel"></ngb-datepicker>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group input-group">
+              <label class="has-float-label">
+                <input disabled id="end-date" type="text" name="end-date" placeholder="To Date" class="form-control" [(ngModel)]="timeService.toDate">
+                <span>To</span>
+              </label>
+              <span class="input-group-btn">
+                <button disabled type="button" class="btn btn-warning btn-calendar" (click)="toggleCalendar(1)">
+                  <i class="fa fa-calendar"></i>
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row" [hidden]="timeService.calendarHidden[1]">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div id="to-calendar">
+              <ngb-datepicker name="ec" [(ngModel)]="timeService.toCalendarModel"></ngb-datepicker>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <label class="form-group has-float-label" style="width: 100%;">
+              <select disabled name="unit" id="unit" class="form-control custom-select" [(ngModel)]="timeService.unit">
+                <option *ngFor="let u of timeService.unitList" [value]="u">
+                  {{u}}
+                </option>
+              </select>
+              <span>Unit</span>
+            </label>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <button (click)="apply()" class="form-control btn btn-primary">Apply</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-7 col-sm-6 col-xs-12">
+      <h5>QUICK RANGE</h5>
+      <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div>
+            <a (click)="timeService.quickRange(false, -1, 0, 'months', $event.target.text)">This month</a>
+          </div>
+          <div>
+            <a (click)="timeService.quickRange(false, -1, 1, 'months', $event.target.text)">Last month</a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div>
+            <a (click)="timeService.quickRange(false, -1, 0, 'quarters', $event.target.text)">This quarter</a>
+          </div>
+          <div>
+            <a (click)="timeService.quickRange(false, -1, 1, 'quarters', $event.target.text)">Last quarter</a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div>
+            <a (click)="timeService.quickRange(false, -1, 0, 'years', $event.target.text)">This year</a>
+          </div>
+          <div>
+            <a (click)="timeService.quickRange(false, -1, 1, 'years', $event.target.text)">Last year</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+
+</div>

@@ -1,0 +1,6 @@
+{
+  "apiRootUrl": "http://localhost:4569/api/v1/",
+  "timeUnits": ["day", "week", "month", "quarter", "year"],
+  "defaultTimeUnit": "month",
+  "startTime": "2017-01-01"
+}

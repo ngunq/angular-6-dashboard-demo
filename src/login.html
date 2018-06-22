@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.png" />
+  <title>Business Manegement - Login</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="floating-labels.css">
+
+</head>
+
+<body>
+
+  <style>
+    body,
+    html {
+      background-color: #fff;
+      padding: 30px 0;
+    }
+
+  </style>
+
+  <div class="container">
+    <div class="text-center" style="margin-bottom: 30px;">
+      <img src="assets/images/vc-logo.svg" width="150" alt="">
+    </div>
+    <form action="" method="POST" class="form-signin" id="login-form">
+      <div class="form-label-group">
+        <input type="text" id="user-name" name="userName" class="form-control" required autofocus>
+        <label for="user-name">Username</label>
+      </div>
+      <div class="form-label-group">
+        <input type="password" id="password" name="password" class="form-control" required>
+        <label for="password">Passcode - G-OTP</label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" id="sign-in" type="submit" style="margin-top: 20px;">Sign in</button>
+      <p class="mt-5 mb-3 text-muted text-center">Copyright 2018, VNG Corp. All rights reserved.</p>
+    </form>
+
+  </div>
+
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+  <script>
+    function getContextPath() {
+    var path = "";
+    var e = window.location.pathname.split("/");
+    for (var i = 0; i < e.length - 1; i++) {
+        path += e[i] + "/";
+    }
+
+    return path;
+}
+    $(function () {
+      $("#login-form").on('submit', function (e) {
+        e.preventDefault();
+        var userName = $("#user-name").val();
+        var password = $("#password").val();
+
+        $.ajax({
+          method: "POST",
+          url: getContextPath() + "login",
+          data: "userName=" + userName + "&password=" + password,
+          success: function (response, status, xhr) {
+            if (xhr.status === 200) {
+              window.location.href = "/";
+            }
+          },
+          error: function () {
+            console.log(response.status);
+          }
+        });
+
+      });
+    });
+  </script>
+</body>
+
+</html>

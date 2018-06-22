@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ge-monthly-revenue-dashboard": {
+    "sunbird-gui": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ge-monthly-revenue-dashboard",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -25,7 +25,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+            ]
           },
           "configurations": {
             "production": {
@@ -50,18 +51,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ge-monthly-revenue-dashboard:build"
+            "browserTarget": "sunbird-gui:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ge-monthly-revenue-dashboard:build:production"
+              "browserTarget": "sunbird-gui:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ge-monthly-revenue-dashboard:build"
+            "browserTarget": "sunbird-gui:build"
           }
         },
         "test": {
@@ -74,7 +75,11 @@
             "styles": [
               "styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "../node_modules/jquery/jquery.min.js",
+              "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "../node_modules/bootstrap-toggle/js/bootstrap-toggle.min.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -95,7 +100,7 @@
         }
       }
     },
-    "ge-monthly-revenue-dashboard-e2e": {
+    "sunbird-gui-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -103,7 +108,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ge-monthly-revenue-dashboard:serve"
+            "devServerTarget": "sunbird-gui:serve"
           }
         },
         "lint": {
@@ -118,5 +123,5 @@
       }
     }
   },
-  "defaultProject": "ge-monthly-revenue-dashboard"
+  "defaultProject": "sunbird-gui"
 }

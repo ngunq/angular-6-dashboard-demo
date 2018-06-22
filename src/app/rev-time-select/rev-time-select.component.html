@@ -1,0 +1,11 @@
+<div class="form-group">
+  <label class="has-float-label">
+    <select class="form-control" id="spec-time" name="spec-time" [(ngModel)]="revTimeService.revTimeValue" (change)="updateChart()">
+      <!-- <option value="">(All)</option> -->
+      <option [value]="opt.value" *ngFor="let opt of revTimeService.revTimeSelect">{{opt.label}}</option>
+    </select>
+    <span>
+      <strong>SELECT {{timeService.unit.toUpperCase()}}</strong>
+    </span>
+  </label>
+</div>

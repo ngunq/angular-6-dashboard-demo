@@ -1,0 +1,13 @@
+body,
+html {
+  background-color: #ECEFF3;
+  padding: 30px 0;
+}
+
+.dashboard-item {
+  display: block;
+  width: 150px;
+  height: 150px;
+  background-color: #fff;
+  border-radius: 40px;
+}

@@ -1,0 +1,20 @@
+<!-- <div class="form-group">
+  <label for="dept-list">
+    <strong style="font-size: 80%;">DEPARTMENT</strong>
+  </label>
+  <select class="form-control" id="dept-list" name="dept-list" [(ngModel)]="deptFilter.value"  (change)="updateChart()">
+    <option value="">(Blank)</option>
+    <option [value]="opt" *ngFor="let opt of deptFilter.filterList">{{opt}}</option>
+  </select>
+</div> -->
+<div class="form-group">
+  <label class="has-float-label">
+    <select class="form-control" id="dept-list" name="dept-list" [(ngModel)]="deptFilter.value"  (change)="updateChart()">
+      <option value="">(All)</option>
+      <option [value]="opt" *ngFor="let opt of deptFilter.filterList">{{opt}}</option>
+    </select>
+    <span>
+      <strong>DEPARTMENT</strong>
+    </span>
+  </label>
+</div>

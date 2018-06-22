@@ -1,0 +1,17 @@
+<label>
+  <strong style="font-size: 80%;">DEPARTMENT</strong>
+</label>
+<div>
+  <div class="chart-panel" id="dept-chart" [hidden]="chartService.hidden"></div>
+  <div class="chart-panel" id="dept-chart-loader" [hidden]="chartService.loader">
+    <div class="text-center" style="vertical-align: middle; line-height: 380px;">
+      <img src="assets/images/loading.svg">
+    </div>
+  </div>
+  <div class="chart-panel" id="dept-chart-reloader" [hidden]="chartService.reload">
+    <div class="text-center" style="vertical-align:  middle; line-height: 380px;">
+      <img src="assets/images/reload.png" style="cursor: pointer;" (click)="load()">&nbsp;
+      <strong>Reload</strong>
+    </div>
+  </div>
+</div>
